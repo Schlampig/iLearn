@@ -144,44 +144,34 @@ class DCGAN(object):
 
     def fit(self):
         # 训练整个网络
-
         # 获取所有样本名称列表
         lst_all = filter(lambda x: x.endswith(self.format), os.listdir(self.load_path+'/'))
         batchs = len(lst_all)/self.batch_size
-
         # 迭代优化网络
         for i_epoch in range(self.epochs):
             d_acc_sum = 0
             g_acc_sum = 0
-
             for i_batch in range(batchs):
-
                 # 选择是否打乱读入样本顺序
                 if self.shuffle is True:
                     random.shuffle(lst_all)
-
                 # 获取当前batch的样本名列表
                 lst_now = lst_all[self.batch_size*i_batch: min(self.batch_size*(i_batch+1),len(lst_all)-1)]
-
                 # 得到真假数据训练判别器
                 real_batch, real_label, fake_batch, fake_label = self.get_batch(lst_now, img_tag='d')
                 d_loss_real = self.Discriminator().train_on_batch(real_batch, real_label)
                 d_loss_fake = self.Discriminator().train_on_batch(fake_batch, fake_label)
                 d_loss = 0.5 * np.add(d_loss_real, d_loss_fake)
-
                 # 得到假数据训练生成器
                 fake_batch, fake_label = self.get_batch(lst_now, img_tag='g')
                 g_loss = self.Adversary().train_on_batch(fake_batch, fake_label)
-
                 # 打印每次训练结果
                 print('epoch %d, %d/%d: d_loss-%.4f, d_acc-%.4f, g_loss-%.4f, g_acc-%.4f'
                       % (i_epoch, i_batch, batchs, d_loss[0], d_loss[1]*100, g_loss[0], g_loss[1]*100))
-
                 # 等步长存储图像
                 if self.save_path is not None:
                     if i_batch % self.save_interval == 0:
                         self.save_img(i_epoch=i_epoch, i_batch=i_batch)
-
             print('-'*300)
             print
 
