@@ -1,2 +1,2 @@
 # iDeepLearning
-Approaches of deep learning or image processing models
+Approaches of deep learning or computer vision domain
