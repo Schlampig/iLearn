@@ -56,3 +56,9 @@ Please note:
         3. Samples in query could generated from gallery set, but when you do the evaluation, samples with same camera should be filtered.
         4. Usually, the open sources datasets have split train, gallery, and query data.
         5. In bounding_box_test folder of the source dataset Market1501, the files with prefix '1488_' have the postfix '.jpg.jpg'，which might cause errors in your code. I've modified their names during my experiment.
+
+---
+Run environment:
+----------------
+python > 3.6
+keras > 2.1.2 (2.1.3 could choose more pre-trained models)
