@@ -26,7 +26,8 @@ http://www.liangzheng.org/
 ---
 The organization of folders to load datasets and store results is listed below:
 -------------------------------------------------------------------------------
-    datasets|
+    
+    datasets|
     --------|Market1501
             |DukeMTMC
             |MARS
@@ -42,11 +43,11 @@ The organization of folders to load datasets and store results is listed below:
                             --------|0001_c1_23kn332.jpg
                                     |0001_c2_3kne83n.jpg
                                     |……
-
-    results|
-    --------|trained_model.h5
-            |feature_gallery_samples.mat
-            |results_for_the_model.mat
+    code_file|codes
+             |results|
+             --------|trained_model.h5
+                     |feature_gallery_samples.mat
+                     |results_for_the_model.mat
 
 Please note: 
 -------------
