@@ -20,7 +20,7 @@ https://github.com/bojone
 ---
 PS:
 ---
-    0. Because both the data format and the test、 evaluate processes 
+    0. Because both the data format and the test、 evaluate processes 
     are similar as the baseline strategy, so in this folder I only put 
     the train and model file.
 
