@@ -5,6 +5,11 @@ Center loss has been introduced into the baseline model instead of
 softmax loss or other common loss.
 
 ---
+Cite:
+-----
+√ Wen, Y., Zhang, K., Li, Z., & Qiao, Y.(2016). A Discriminative Feature Learning Approach for Deep Face Recognition. Computer Vision, ECCV 2016. Springer International Publishing. 
+
+---
 Note:
 -----
 The key code to calculate center loss is not original. It is 
@@ -15,9 +20,9 @@ https://github.com/bojone
 ---
 PS:
 ---
-    0. Because the test and evaluate processes are similar as 
-    the baseline strategy, so in this folder I only put the 
-    train and model file.
+    0. Because both the data format and the test、 evaluate processes 
+    are similar as the baseline strategy, so in this folder I only put 
+    the train and model file.
 
     1. Simple loss function is easy to add into the model, keras 
     constrains two input parameters and one output loss:
