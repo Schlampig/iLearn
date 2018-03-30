@@ -13,7 +13,7 @@ Please note:
     which might make the mAP score different from the original results.
     3.According to my experiments, 
     Rank1(k_top=1), mAP(k_neighbor=1), Rank5(k_top=5) is 69.2101, 67.0975, 82.0466 for DukeMTMC, 
-                                                  for Market1501.
+                                                         77.1081, 75.3971, 90.0237 for Market1501.
 
 ---
 Links might be useful:
