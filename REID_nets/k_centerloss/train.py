@@ -88,7 +88,7 @@ class_num = max(train_generator.classes)+1
 def get_generator(gen, class_num, batch_size):
     while True:
         X, y = gen.next()  # X with shape (batch_size, dimension), y with shape (batch_size, one_hot)
-        y_pre = np.random.randint(0, class_num, batch_size)  # y_pre with shape (batch_size,)
+        y_pre = np.random.randint(0, class_num, y.shape)  # y_pre with shape (batch_size,)
         new_y = np.argwhere(y == 1)[:, 1]  # y_new with shape (batch_size,)
         yield [X, new_y], [y, y_pre]  # [data1, data2, ...], [label1, label2, ...]
 
@@ -112,4 +112,3 @@ model.fit_generator(
 
 model.save_weights(model_save_path)
 print('Successfully train the model: {}.'.format(model_name))
-
