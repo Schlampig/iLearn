@@ -99,8 +99,8 @@ def get_label_and_cam(lst_name):
     return lst_label, lst_cam
 gallery_label, gallery_cam = get_label_and_cam(gallery_name)
 query_label, query_cam = get_label_and_cam(query_name)
-assert gallery_label.shape[0] == gallery_feature.shape[0]
-assert query_label.shape[0] == query_feature.shape[0]
+assert len(gallery_label) == len(gallery_feature)
+assert len(query_label) == len(query_feature)
 
 # save the generated data
 test_data = {'gallery_feature': gallery_feature,
