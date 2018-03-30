@@ -51,8 +51,8 @@ The organization of folders to load datasets and store results is listed below:
 
 Please note: 
 -------------
-    1. I only use one sample of each class in validation set.
-    2. Considering reid an open-set problem, samples in training and validation sets should not appear in gallery and query sets.
-    3. Samples in query could generated from gallery set, but when you do the evaluation, samples with same camera should be filtered.
-    4. Usually, the open sources datasets have split train, gallery, and query data.
-    5. In bounding_box_test folder of the source dataset Market1501, the files with prefix '1488_' have the postfix '.jpg.jpg'，which might cause errors in your code. I've modified their names during my experiment.
+        1. I only use one sample of each class in validation set.
+        2. Considering reid an open-set problem, samples in training and validation sets should not appear in gallery and query sets.
+        3. Samples in query could generated from gallery set, but when you do the evaluation, samples with same camera should be filtered.
+        4. Usually, the open sources datasets have split train, gallery, and query data.
+        5. In bounding_box_test folder of the source dataset Market1501, the files with prefix '1488_' have the postfix '.jpg.jpg'，which might cause errors in your code. I've modified their names during my experiment.
