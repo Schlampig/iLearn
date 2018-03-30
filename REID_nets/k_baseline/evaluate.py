@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
+import os
 import numpy as np
 import scipy.io
 from sklearn.metrics import average_precision_score
@@ -8,8 +8,8 @@ from sklearn.metrics import average_precision_score
 
 # Configure hyper-parameters and datasets
 ####################################################################
-save_name = 'baseline_new_Market1501'
-load_path = os.path.join('results', 'features_baseline_new_Market1501.mat')
+save_name = 'baseline_ResNet50_new_Market1501.h5'
+load_path = os.path.join('results', 'features_baseline_ResNet50_new_Market1501.mat')
 save_path = os.path.join('results', 'res_'+save_name)
 k_neighbor = 1
 k_top = 1
