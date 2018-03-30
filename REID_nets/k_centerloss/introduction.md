@@ -34,10 +34,9 @@ PS:
 
     2. However, trying to utilize self-designed custom loss functions 
     with more than two inputs y_true and y_pre and one output loss in 
-    Keras is quiet difficult. 
-    
+    Keras is quiet difficult.   
     One idea is to add a LossLayer into the model, just like this:
-    https://github.com/Peter554/MNIST_center_loss
+           https://github.com/Peter554/MNIST_center_loss
     but it might be troublesome to consider all updated parameters
     during your self-defined layer. I tried and failed. Maybe I could 
     handle the problem in the future.
