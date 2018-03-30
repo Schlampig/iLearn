@@ -60,5 +60,5 @@ Please note:
 ---
 Run environment:
 ----------------
-python > 3.6
-keras > 2.1.2 (2.1.3 could choose more pre-trained models)
+        python > 3.6
+        keras > 2.1.2 (2.1.3 could choose more pre-trained models)
