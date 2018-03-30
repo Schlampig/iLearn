@@ -92,10 +92,9 @@ def get_label_and_cam(lst_name):
     for name_now in lst_name:
         label_now, name_now = int(name_now.split('/')[0]), name_now.split('/')[1]
         cam_now = int(re.findall('[C, c](\d+)', name_now)[0])
-        if label_now and cam_now:
-            # print(name_now, ':', label_now, cam_now)
-            lst_label.append(label_now)
-            lst_cam.append(cam_now)
+        # print(name_now, ':', label_now, cam_now)
+        lst_label.append(label_now)
+        lst_cam.append(cam_now)
     return lst_label, lst_cam
 gallery_label, gallery_cam = get_label_and_cam(gallery_name)
 query_label, query_cam = get_label_and_cam(query_name)
@@ -111,3 +110,4 @@ test_data = {'gallery_feature': gallery_feature,
              'query_cam': query_cam}
 scipy.io.savemat(save_path, test_data)
 print('Successfully get features of the gallery and query data.')
+
