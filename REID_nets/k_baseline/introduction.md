@@ -55,4 +55,4 @@ Please note:
     2. Considering reid an open-set problem, samples in training and validation sets should not appear in gallery and query sets.
     3. Samples in query could generated from gallery set, but when you do the evaluation, samples with same camera should be filtered.
     4. Usually, the open sources datasets have split train, gallery, and query data.
-        
+    5. In bounding_box_test folder of the source dataset Market1501, the files with prefix '1488_' have the postfix '.jpg.jpg'，which might cause errors in your code. I've modified their names during my experiment.
