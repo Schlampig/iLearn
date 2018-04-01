@@ -36,6 +36,10 @@ def net_centerloss(bn_size, img_shape, class_num=False, use_net=ResNet50):
     x = BatchNormalization(name='batch_norm')(x)
     features = LeakyReLU(0.1, name='leaky_relu')(x)
 
+    # configuer optimizer
+    # optimizer = SGD(lr=0.01, momentum=0.9, decay=5e-4, nesterov=True)
+    optimizer = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=10e-8)
+        
     if class_num:  # supervision
         # Embedding layer is used to store centers with shape (class_num x dim)
         label = Input(shape=(1,), name='input_label')
@@ -47,15 +51,13 @@ def net_centerloss(bn_size, img_shape, class_num=False, use_net=ResNet50):
         output = Dense(class_num, activation='softmax', name='dense_output')(features)
         # optimize model and update loss
         model = Model(inputs=[input, label], outputs=[output, loss])
-        optimizer = SGD(lr=0.01, momentum=0.9, decay=5e-4, nesterov=True)
         model.compile(optimizer=optimizer,
-                      loss=['categorical_crossentropy', lambda y_true, y_pred: y_pred],
-                      loss_weights=[1., 0.5],
+                      loss=['sparse_categorical_crossentropy', lambda y_true, y_pred: y_pred],
+                      loss_weights=[1., 0.001],
                       metrics={'dense_output': 'accuracy'})
     else:  # un-supervision
         output = features
         model = Model(inputs=input, outputs=output)
-        optimizer = SGD(lr=0.01, momentum=0.9, decay=5e-4, nesterov=True)
-        model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+        model.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
     return model
