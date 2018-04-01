@@ -10,7 +10,7 @@ Please note:
     1.My version is simpler and might not perform as well as the original pytorch version, 
     e.g., I didn't use kaiming distance or learning rate schecdul. 
     2. Moreover, I use sklearn to calculated AP(Area under the Precision and Recall Curve), 
-    which might make the mAP score different from the original results.
+    which might make the mAP(mean AP for all classes)  score different from the original results.
     3.According to my experiments, 
     Rank1(k_top=1), mAP(k_neighbor=1), Rank5(k_top=5) is 69.2101, 67.0975, 82.0466 for DukeMTMC, 
                                                          77.1081, 75.3971, 90.0237 for Market1501.
@@ -43,11 +43,12 @@ The organization of folders to load datasets and store results is listed below:
                                 --------|0001_c1_23kn332.jpg
                                         |0001_c2_3kne83n.jpg
                                         |……
-        code_file|codes
-                |results|
-                --------|trained_model.h5
-                        |feature_gallery_samples.mat
-                        |results_for_the_model.mat
+        code_file|
+         --------|codes
+         --------|results|
+                 --------|trained_model.h5
+                         |feature_gallery_samples.mat
+                         |results_for_the_model.mat
 
 Please note: 
 -------------
