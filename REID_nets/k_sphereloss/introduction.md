@@ -15,6 +15,6 @@ https://github.com/wy1iu/sphereface
 ---
 PS:
 ---
-  1. Here, the keras codes to implement a-softmax loss into a model are original. Use them freely.
-  2. Please read introductions about baseline and center_loss to know how to use these codes 
-  3. I will be glad if you could cite this link, star it or give me a feed back!
+    1. Here, the keras codes to implement a-softmax loss into a model are original. Use them freely.
+    2. Please read introductions about baseline and center_loss to know how to use these codes 
+    3. I will be glad if you could cite this link, star it or give me a feed back!
