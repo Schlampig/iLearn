@@ -1,6 +1,6 @@
 Introduction
 ============
-A-softmax loss has been introduced into the baseline model instead of softmax loss or other common loss.
+A-softmax loss (in SphereFace) rather than so-called sphere loss has been introduced into the baseline model instead of softmax loss or other common loss.
 
 ---
 Cite:
