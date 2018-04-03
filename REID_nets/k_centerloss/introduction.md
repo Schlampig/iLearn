@@ -47,7 +47,7 @@ PS:
     input the simple numeric encoded label into the net!
 
     However, if you insist on passing one-hot encoded label into the net to make
-    it more familiar like some general models, you could make small modified in 
+    it more familiar like some general models, you could make small modificatins in 
     the get_generator() function and the optimizer setting of the model like this:
 
     def get_generator(gen, class_num, batch_size):
