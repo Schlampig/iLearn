@@ -46,10 +46,6 @@ bn_size = 512  # bottleneck size
 
 # Pre-procssing
 ###############################################################################
-# assign gpu
-if use_gpu:
-    os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
-
 # get train and validation size
 def get_folder_size(path):
     return sum((sum((1 for j in os.listdir(os.path.join(path, i)) if j.endswith('.jpg')))
