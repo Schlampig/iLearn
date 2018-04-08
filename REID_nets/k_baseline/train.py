@@ -19,8 +19,13 @@ model_name = 'baseline_ResNet50_new_Market1501.h5'
 
 # assign gpu
 use_gpu = True
-gpu_id = '1'
+gpu_id = '0'
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
 if use_gpu: os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
+config = tf.ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.5  # constrain the efficiency of CPU at 50%
+set_session(tf.Session(config=config))
 
 # path
 save_path = 'results'
