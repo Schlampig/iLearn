@@ -1,6 +1,17 @@
 # -*- coding: UTF-8 -*-
 
 
+"""
+*  Very basic reproducted codes for DAN and DAN+ models in Apparent Personality Analysis 
+   (through Big Five personality traits) are given here.
+   
+** The original method and the related works are:
+   [1] https://github.com/tzzcl/ChaLearn-APA-Code
+   [2] http://lamda.nju.edu.cn/weixs/project/APA/APA.html
+   [3] https://zhuanlan.zhihu.com/p/23176872
+"""
+
+
 from keras.layers import *
 from keras.models import *
 from keras.optimizers import *
