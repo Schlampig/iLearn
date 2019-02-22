@@ -36,9 +36,11 @@ import tensorflow as tf
 # CUDA_VISIBLE_DEVICES=4,5,6,7
 p_bert_config_file = "../Toolbox/chinese_L-12_H-768_A-12/bert_config.json"
 p_vocab_file = "../Toolbox/chinese_L-12_H-768_A-12/vocab.txt"
-p_output_dir = "result_0220"
-p_train_file = "../datasets/data_tinyDRCD_0222/DRCR_train_tiny.json"
+p_output_dir = "result_tf_0220"
+p_train_file = "../datasets/data_DRCD_0129/DRCR_train_large.json"
 p_predict_file = "../datasets/data_DRCD_0129/DRCD_dev.json"
+p_do_train = True
+p_do_pre = True
 
 
 # Config FLAGS
@@ -54,14 +56,14 @@ flags.DEFINE_string("output_dir", p_output_dir, "The output directory where the 
 flags.DEFINE_string("train_file", p_train_file, "Training json for training. E.g., train-v1.1.json")
 flags.DEFINE_string("predict_file", p_predict_file, "Dev json for predictions. E.g., dev-v1.1.json or test-v1.1.json")
 flags.DEFINE_string("init_checkpoint", None, "Initial checkpoint (usually from a pre-trained BERT model).")
-flags.DEFINE_bool("do_train", True, "Whether to run training.")
-flags.DEFINE_bool("do_predict", False, "Whether to run eval on the dev set.")
+flags.DEFINE_bool("do_train", p_do_train, "Whether to run training.")
+flags.DEFINE_bool("do_predict", p_do_pre, "Whether to run eval on the dev set.")
 
-flags.DEFINE_integer("train_batch_size", 32, "Total batch size for training.")
+flags.DEFINE_integer("train_batch_size", 16, "Total batch size for training.")
 flags.DEFINE_integer("predict_batch_size", 8, "Total batch size for predictions.")
-flags.DEFINE_integer("max_seq_length", 384, "The maximum total input sequence length after WordPiece tokenization. ")
-flags.DEFINE_integer("doc_stride", 128, "Stride to split up a long document into chunks.")
-flags.DEFINE_integer("max_query_length", 64, "The maximum number of tokens of the question.")
+flags.DEFINE_integer("max_seq_length", 256, "The maximum total input sequence length after WordPiece tokenization. ")
+flags.DEFINE_integer("doc_stride", 64, "Stride to split up a long document into chunks.")
+flags.DEFINE_integer("max_query_length", 16, "The maximum number of tokens of the question.")
 flags.DEFINE_integer("max_answer_length", 30, "The maximum length of an answer that can be generated.")
 
 flags.DEFINE_float("num_train_epochs", 3.0, "Total number of training epochs to perform.")
