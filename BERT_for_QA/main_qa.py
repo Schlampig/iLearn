@@ -29,13 +29,9 @@ p_vocab_file = "../Toolbox/chinese_L-12_H-768_A-12/vocab.txt"
 p_do_train = True
 p_do_pre = True
 
-# p_output_dir = "result_tf_0225_dataxbc"
-# p_train_file = "../datasets/DataXBC_bert/gen_train.json"
-# p_predict_file = "../datasets/DataXBC_bert/gen_dev.json"
-
-p_output_dir = "result_tf_0227_dataall"
-p_train_file = "../datasets/DataAllBert/train_all.json"
-p_predict_file = "../datasets/DataAllBert/dev_all.json"
+p_output_dir = "results"
+p_train_file = "../datasets/train.json"
+p_predict_file = "../datasets/dev.json"
 
 
 # Config FLAGS
@@ -1179,7 +1175,7 @@ def main(_):
 
 
 if __name__ == "__main__":
-    flags.mark_flag_as_required("vocab_file")  # 定义必备参数
+    flags.mark_flag_as_required("vocab_file")
     flags.mark_flag_as_required("bert_config_file")
     flags.mark_flag_as_required("output_dir")
     tf.app.run()
