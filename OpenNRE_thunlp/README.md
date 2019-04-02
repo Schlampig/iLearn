@@ -67,3 +67,10 @@ Finish calculating
 [TEST] step 241 | not NA accuracy: 0.792198, accuracy: 0.790418
 [TEST] auc: 0.9050112846455524
   ```
+
+<br>
+
+### Note:
+  * Remember to modify routes of your own datasets in the OpenNRE scripts.
+  * I now encounter the same issue reported [here](https://github.com/thunlp/OpenNRE/issues/103), the method proposed by [xpxpx](https://github.com/xpxpx) works. Maybe the future version of OpenNRE will address the issue.
+  * ...
