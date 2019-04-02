@@ -12,7 +12,7 @@
 
 <br>
 
-### Results about first 5 epochs with default settings (gpu_num=2) for train_demo.py:
+### Results about first 5 epochs with default settings (gpu_nums=2) for train_demo.py:
   ```
 ###### Epoch 1 ######
 epoch 1 step 1684 time 0.04 | loss: 0.368283, not NA accuracy: 0.732326, accuracy: 0.732326
