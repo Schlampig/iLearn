@@ -108,12 +108,12 @@ def EmbedingMat2EmbedingJson(load_path, save_path):
         
 
 if __name__ == "__main__":
-    root_path = "../DuNRE"
+    root_path = "./DuNRE"
     print("Transform dev data...")
-    DuIE2DuNRE_data("../DuIE/dev_data.json", os.path.join(root_path, "dev_nre.json"))
+    DuIE2DuNRE_data("./DuIE/dev_data.json", os.path.join(root_path, "dev_nre.json"))
     print("Transform training data...")
-    DuIE2DuNRE_data("../DuIE/train_data.json", os.path.join(root_path, "train_nre.json"))
+    DuIE2DuNRE_data("./DuIE/train_data.json", os.path.join(root_path, "train_nre.json"))
     print("Transform relation data...")
-    schema2relation("../DuIE/all_50_schemas", os.path.join(root_path, "relation_nre.json"))
+    schema2relation("./DuIE/all_50_schemas", os.path.join(root_path, "relation_nre.json"))
 #     print("Transform embedding data...")
-#     EmbedingMat2EmbedingJson("../../Toolbox/Tencent_AILab_ChineseEmbedding.txt", os.path.join(root_path, "word_vec_nre.json"))
+#     EmbedingMat2EmbedingJson("./Tencent_AILab_ChineseEmbedding.txt", os.path.join(root_path, "word_vec_nre.json"))
