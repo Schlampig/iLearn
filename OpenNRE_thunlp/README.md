@@ -10,7 +10,9 @@
   * Clone project from OpenNRE and modify the route in train_demo.py.
   * Run train_demo.py to train the model.
 
-### Results records with default settings in train_demo.py
+<br>
+
+### Results about first 5 epochs with default settings (gpu_num=2) for train_demo.py:
   ```
 ###### Epoch 1 ######
 epoch 1 step 1684 time 0.04 | loss: 0.368283, not NA accuracy: 0.732326, accuracy: 0.732326
