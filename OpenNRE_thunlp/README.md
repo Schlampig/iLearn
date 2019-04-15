@@ -70,6 +70,10 @@ Finish calculating
 
 <br>
 
+### Demo （via Flask）
+  * an inference example could be found in [predict.py](https://github.com/Schlampig/i_learn_deep/blob/master/OpenNRE_thunlp/predict.py).
+  * a demo using postman and Flask could be found in [demo.py](https://github.com/Schlampig/i_learn_deep/blob/master/OpenNRE_thunlp/demo.py).
+
 ### Note:
   * Remember to modify routes of your own datasets in the OpenNRE scripts.
   * I now encounter the same issue reported [here](https://github.com/thunlp/OpenNRE/issues/103), the method proposed by [xpxpx](https://github.com/xpxpx) works. Maybe the future version of OpenNRE will address the issue.
