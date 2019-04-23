@@ -4,7 +4,7 @@
   * Download the [Tencent AI Lab Embedding Corpus for Chinese Words and Phraseshttps](https://ai.tencent.com/ailab/nlp/embedding.html).
   * Put "DuIE" and the Tencent embedding file under the folder MyPreprocess.
   * Create a folder under MyPreprocess named "DuNRE" to store re-formatted datasets.
-  * Put the pre-process scripts gen_DuNRE.py and gen_embed_mat.py under the folder MyPreprocess.
+  * Put the pre-process scripts [gen_DuNRE.py](https://github.com/Schlampig/i_learn_deep/blob/master/OpenNRE_thunlp/gen_DuNRE.py) and [gen_embed_mat.py](https://github.com/Schlampig/i_learn_deep/blob/master/OpenNRE_thunlp/gen_embed_mat.py) under the folder MyPreprocess.
   * Run gen_DuNRE.py to create 3 new datasets train_nre.json, dev_nre.json, and relation_nre.json.
   * Run gen_embed_mat.py to create the embedding dictionary file word_dictionary_nre.json.
   * Clone project from OpenNRE and modify the route in train_demo.py.
