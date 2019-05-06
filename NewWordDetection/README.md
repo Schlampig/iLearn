@@ -6,5 +6,5 @@
   * Prepare a stop-words dictionary file named [dict.txt](https://github.com/Schlampig/i_learn_deep/blob/master/NewWordDetection/dict.txt).
   * Prepare the target document file named [document.txt](https://github.com/Schlampig/i_learn_deep/blob/master/NewWordDetection/document.txt). More words, better performance, since this is a unsupervised statistic method.
   * Put both files under the same folder with the code [detect_new_words.py](https://github.com/Schlampig/i_learn_deep/blob/master/NewWordDetection/detect_new_words.py)
-  * Run the code to generate a result file named [results.csv](https://github.com/Schlampig/i_learn_deep/tree/master/NewWordDetection).
+  * Run the code to generate a result file named [results.csv](https://github.com/Schlampig/i_learn_deep/blob/master/NewWordDetection/results.csv).
   * Check new discovered words listed in the result file.
