@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 """
-Chinese word segmentation algorithm with corpus
+Chinese new word detection algorithm with given corpus.
 
 Author:
     Xylander23 (https://github.com/xylander23/New-Word-Detection)
@@ -22,6 +22,7 @@ import codecs
 import pandas as pd
 from collections import Counter
 import jieba
+import pkuseg
 
 
 # Calculate entropy
@@ -148,16 +149,29 @@ def clean_words(doc):
     return doc
 
 
-def filter_words(word, stop_path, doc, filter_exist=True):
+def tokenize_words(doc, filter_exist=None):
+    # input: doc is a long string
+    #        filter_exist, jieba or pkuseg
+    # output: dict_doc = {word: count, word: count, ...}
+    #         cws_model, a words splitting model, jieba, pkuseg, or None
+    if filter_exist == "pkuseg":
+        print("Use pkuseg tokenizer ...")
+        cws_model = pkuseg.pkuseg()
+    else:
+        print("Use jieba tokenizer ...")
+        cws_model = jieba
+    dict_doc = dict(Counter(list(cws_model.cut(doc))))
+    return dict_doc, cws_model
+
+
+def filter_words(word, stop_path, doc, filter_exist=None):
     # input: word, object
     #        stop_path, string
     #        doc, clean long string
-    #        filter_exist, if True delete existed words
+    #        filter_exist, jieba or pkuseg or None
     # output: word_list = [word_item, word_item, ...], where word_item = (word, length, freq, pmi, entropy)
     # generate dictionary for existing words
-    dict_doc = dict()
-    if filter_exist:
-        dict_doc = dict(Counter(jieba.lcut(doc)))
+    dict_doc, cws_model = tokenize_words(doc, filter_exist)
     # load list_stop
     list_stop = list()
     if os.path.exists(stop_path):
@@ -166,16 +180,17 @@ def filter_words(word, stop_path, doc, filter_exist=True):
     # filter stop word
     word_list = list()
     for i in word.word_tf_pmi_ent:
-        if (i[0] not in list_stop) and (i[0] not in dict_doc):
+        candidate = i[0]
+        if (candidate not in list_stop) and (candidate not in dict_doc) and len(list(cws_model.cut(candidate))) > 1:
             word_list.append([i[0], i[1], i[2], i[3], i[4]])
     return word_list
 
 
-def rank_words(word_list):
+def rank_words(word_list, r=0.5):
     # ranking on entropy (primary key) and pmi (secondary key)
     # input & output: word_list = [word_item, word_item, ...], where word_item = (word, length, freq, pmi, entropy)
-    word_list = sorted(word_list, key=lambda word: word[3], reverse=True)
-    word_list = sorted(word_list, key=lambda word: word[4], reverse=True)
+    assert isinstance(r, float) and 0 <= r <= 1
+    word_list = sorted(word_list, key=lambda word: r*word[3]+(1-r)*word[4], reverse=True)
     return word_list
 
 
@@ -190,7 +205,7 @@ def save_words(word_list, save_path):
     return None
 
 
-def discover_words(load_path, save_path, stop_path, filter_exist=False):
+def discover_words(load_path, save_path, stop_path, filter_exist=None):
     # input: load_path, string for document path
     #        stop_path, string
     #        filter_exist, if True delete existed words
@@ -201,7 +216,7 @@ def discover_words(load_path, save_path, stop_path, filter_exist=False):
     assert stop_path.endswith(".txt")
     doc = codecs.open(load_path, "r", "utf-8").read()
     doc = clean_words(doc)
-    word = SegDoc(doc, max_word_len=3, min_tf=1e-08, min_entropy=1.0, min_pmi=3.0)
+    word = SegDoc(doc, max_word_len=5, min_tf=1e-08, min_entropy=1.0, min_pmi=3.0)
     print("Results: avg_frq-{}, avg_pmi-{}, avg_entropy-{}.".format(word.avg_frq, word.avg_pmi, word.avg_entropy))
     # word filtering
     word_list = filter_words(word, stop_path, doc, filter_exist)
@@ -217,10 +232,11 @@ def discover_words(load_path, save_path, stop_path, filter_exist=False):
 if __name__ == "__main__":
     print("Start to analyze ...")
     start_time = time.clock()
-    load_path = "document.txt"
+    load_path = "document_xiuxian.txt"
     save_path = "results.csv"
     stop_path = "dict.txt"
-    discover_words(load_path, save_path, stop_path, True)
+    discover_words(load_path, save_path, stop_path, "pkuseg")
     duration = time.clock() - start_time
     print("Time-cost: {}.".format(duration))
     print("Finished.")
+ 
