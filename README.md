@@ -1,2 +1,2 @@
-# iDeepLearning
-Approaches of deep learning or computer vision domain
+# iLearn
+Self-approaches of machine learning and deep learning.
