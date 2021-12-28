@@ -97,7 +97,7 @@ class DeepDream(object):
 
 
 if __name__ == "__main__":
-    load_path = "face.jpeg"
+    load_path = "your_image.jpg"
     img_dream = DeepDream(Image.open(load_path)).run_dream()
     save_path = "dreamed_"+load_path
     plt.imshow(img_dream)
