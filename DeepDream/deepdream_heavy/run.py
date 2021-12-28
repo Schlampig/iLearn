@@ -28,7 +28,7 @@ config = dict()
 for arg in vars(args):
     config[arg] = getattr(args, arg)
 config['dump_dir'] = "./dump_dir"
-config['input'] = "figures.jpg"
+config['input'] = "your_image.jpg"
 
 
 # DeepDream Core
