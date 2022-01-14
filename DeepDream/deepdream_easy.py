@@ -1,4 +1,5 @@
 # the original code is from: https://github.com/wmn7/ML_Practice/blob/master/2019_05_27/deep-dream-pytorch.ipynb
+# references: https://mathpretty.com/10485.html, https://mathpretty.com/10475.html
 
 import numpy as np
 from matplotlib import pyplot as plt
